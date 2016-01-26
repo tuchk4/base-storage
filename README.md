@@ -1,7 +1,9 @@
 # Base storage
 
-Provide easy way to get / set and check keys existing at objects
- 
+Provide easy way to get / set and check keys existing at objects. Super light component
+
+`npm install --save base-storage`
+
 ### How to use
 ```js
 import BaseStorage from 'base-storage';
@@ -57,6 +59,13 @@ class CustomStorage extends BaseStorage {
 }
 ```
 
+### Available methods
+
+- `constructor(object)` - constructor takes **object** with which  get / set / has methods will work
+
+- `get(path, defaultValue)` - gets the value at path of object. If the resolved value is undefined the defaultValue is used in its place. ([lodash/get](https://lodash.com/docs#get))
+- `set(path, value)` - sets the value at path of object. ([lodash/set](https://lodash.com/docs#set)) 
+- `has(path)` - returns **true** is path exists and **false** - if not. ([lodash/has](https://lodash.com/docs#has))
 
 ### Community
 You are always welcome for ideas and pull requests :)
