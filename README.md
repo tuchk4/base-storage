@@ -1,6 +1,6 @@
 # Base storage
 
-Provide easy way to get / set and check keys existing at objects. Super light component
+Provides easy way to get / set and check keys existing at objects. Super light component
 
 `npm install --save base-storage`
 
