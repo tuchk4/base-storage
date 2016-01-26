@@ -1,6 +1,6 @@
-import getter from 'lodash/object/get';
-import setter from 'lodash/object/set';
-import has from 'lodash/object/has';
+import getter from 'lodash/get';
+import setter from 'lodash/set';
+import has from 'lodash/has';
 
 let _config = Symbol('config');
 
