@@ -10,7 +10,15 @@ export default class Storage {
   }
 
   get(key, defaultValue) {
-    return getter(this[_config], key, defaultValue);
+    let collected = null;
+
+    if (arguments.length == 0) {
+      collected = this[_config];
+    } else {
+      collected = getter(this[_config], key, defaultValue);
+    }
+
+    return collected;
   }
 
   has(key) {
