@@ -28,4 +28,11 @@ export default class Storage {
   set(key, value) {
     setter(this[_config], key, value);
   }
+
+  //freeze(path) {
+  //  let part = this.get(path);
+  //  Object.freeze(part);
+  //
+  //  this.set(path, part);
+  //}
 }

@@ -141,3 +141,9 @@ expect(config.getAuthClientId()).to.be.equal('xxx');
 
 ### Community
 You are always welcome for ideas and pull requests :)
+
+
+### TODO
+
+- [ ] Feature request: freeze (make immutable) whole stored object and its parts
+- [ ] Feature request: Support data structures. (likely to use [tcomb](https://github.com/gcanti/tcomb)) 
