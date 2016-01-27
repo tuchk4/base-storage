@@ -59,6 +59,78 @@ class CustomStorage extends BaseStorage {
 }
 ```
 
+Very useful for using as config storage with presets (shortcuts)
+
+```js
+import BaseStorage from 'base-storage';
+
+class AppConfig extends BaseStorage {
+  
+  routing: {
+    add: (path, action) => {
+      let routes = this.get('routing.actions', []);
+      routes.push({path, action});
+      
+      this.set('routing.actions', routes);
+    },
+    
+    enableHistoryApi: () => {
+      this.set('routing.isHistoryApiEnabled', true);
+    },
+    
+    disableHistoryApi: () => {
+      this.set('routing.isHistoryApiEnabled', false);
+    }
+  };
+  
+  exceptions: {
+    handler: (handler) => {
+      let handlers = this.get('exceptions.handlers', []);
+      handlers.push(handler);
+      
+      this.set('exceptions.handlers', handlers);
+    }
+  };
+  
+  api: {
+    setHost: host => this.set('api.host', host),
+    setPort: port => this.set('api.port', port),
+    setPrefix: prefix => this.set('api.prefix', prefix),
+  };
+  
+  google: {
+    setAuthClientId: clientId => this.set('google.auth.clientId', clientId),
+    getAuthClientId: () => this.get('google.auth.clientId'),
+    
+    setAnalyticsId: analyticsId => this.set('google.analyticsId.id', analyticsId),
+  }
+  
+  constructor(config) {
+    super(config);
+  }
+}
+
+let config = new AppConfig();
+
+// ....
+
+config.google.setAuthClientId('xxx');
+config.google.setAnalyticsId('zzz');
+
+expect(config.get('google')).to.be.equal({
+  auth: {
+    clientId: 'xxx',
+  },
+  analyticsId: {
+    id: 'zzz'
+  }
+});
+
+
+expect(config.get('google.auth.clientId')).to.be.equal('xxx');
+expect(config.getAuthClientId()).to.be.equal('xxx');
+```
+
 ### Available methods
 
 - `constructor(object)` - constructor takes **object** with which  get / set / has methods will work
