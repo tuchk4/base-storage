@@ -1,5 +1,7 @@
 # Base storage
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/tuchk4/base-storage.svg)](https://greenkeeper.io/)
+
 Provides easy way to get / set and check the existence of a paths in the objects
 
 `npm install --save base-storage`
